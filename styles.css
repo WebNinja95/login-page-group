@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #969696;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -38,6 +43,11 @@ button:hover {
   background-color: #6a6a6a;
 }
 
+button + p {
+  font-size: 1.1em;
+  margin-top: 0.5em;
+}
+
 h1 {
   font-size: 2.5em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -48,7 +58,6 @@ h1 {
   display: flex;
   width: 100%;
   height: 100%;
-  /* border: 1px solid black; */
 }
 
 form label {
@@ -59,7 +68,7 @@ fieldset {
   border: none;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.8em;
 }
 
 fieldset h1 {
@@ -78,13 +87,48 @@ input {
 }
 
 input[type="checkbox"] {
-  margin-right: 0.5em;
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+}
+
+input[type="checkbox"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
   border: 1px solid #ccc;
-  width: 1em;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+}
+
+input[type="checkbox"]:checked + label:before {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 2.8px;
+  width: 3px;
+  height: 11px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 a {
-  color: #333;
+  color: var(--primary-color);
 }
 
 a:hover {
@@ -99,7 +143,7 @@ p {
 
 label {
   font-size: 1.2em;
-  color: #333;
+  color: var(--primary-color);
   margin-bottom: 0.2em;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -111,7 +155,6 @@ label[for="terms-checkbox"] {
 form {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-direction: column;
 }
 
@@ -126,7 +169,7 @@ form ul {
   flex-grow: 1;
   gap: 0.5em;
   padding-inline: 0px;
-  color: #969696;
+  color: var(--secondary-color);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 1.1em;
   margin-bottom: 1em;
@@ -141,8 +184,8 @@ form ul li {
 
 form ul li::before {
   content: "";
-  background-color: #969696;
-  color: #333;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   width: 0.4em;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -167,7 +210,7 @@ form ul li::before {
 .checkbox-section {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   display: flex;
-
+  flex-wrap: wrap;
   gap: 0.2em;
   margin-block: 1em;
 }
@@ -178,7 +221,7 @@ form ul li::before {
 
 .term-section {
   width: 100%;
-  margin-block: 1em;
+  margin-block: 2em;
   font-size: 1.2em;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -187,11 +230,49 @@ form ul li::before {
   width: 45%;
 }
 
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    padding-block: 3em;
+  }
+  .info-section,
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  .image {
+    height: 50%;
+  }
+}
+
 img {
   width: 100%;
   height: 100%;
 }
 
-input[type="checkbox"]:checked {
-  background-color: #630606;
+.hide-word-design {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hide-word-design button {
+  all: unset;
+  font-size: 1em;
+  padding-right: 1em;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.hide-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.hide-container img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }

@@ -21,7 +21,16 @@
             <input type="text" />
           </fieldset>
           <fieldset>
-            <label for="password">Password</label>
+            <div class="hide-word-design">
+              <label for="password">Password</label>
+              <div class="hide-container">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/10812/10812267.png"
+                  alt="hide icon"
+                />
+                <button type="button">Hide</button>
+              </div>
+            </div>
             <input type="password" />
             <ul>
               <li>Use 8 or more character</li>
@@ -35,7 +44,7 @@
 
         <section>
           <section class="checkbox-section">
-            <input type="checkbox" name="terms-checkbox" checked />
+            <input type="checkbox" name="terms-checkbox" id="terms-checkbox" />
             <label for="terms-checkbox">
               I want to receive emails about the product, feature updates,
               events, and marketing promotions.
